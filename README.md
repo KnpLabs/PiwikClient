@@ -7,6 +7,7 @@ Usage
 -----
 
 1. Through HTTP connection:
+
         <?php
         
         $connection = new Knplabs\PiwikClient\Connection\HttpConnection('http://demo.piwik.org');
@@ -14,6 +15,7 @@ Usage
         
         $array = $client->call('API.getReportMetadata', array('idSites' => array(23, 55)));
 2. Through local (PHP) connection:
+
         <?php
 
         require_once PIWIK_INCLUDE_PATH . "/index.php";
@@ -28,7 +30,7 @@ Usage
 Methods
 -------
 
-For all available methods & attributes, visit [Piwik API Reference](http://dev.piwik.org/trac/wiki/API/Reference).
+To see all available methods & their parameters, visit [Piwik API Reference](http://dev.piwik.org/trac/wiki/API/Reference).
 
 Copyright
 ---------
