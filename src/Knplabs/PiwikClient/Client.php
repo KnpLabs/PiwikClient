@@ -39,14 +39,23 @@ class Client
      *
      * @param   string  $method     method name
      * @param   array   $params     method parameters
+     * @param   string  $format     return format (php, json, xml, csv, tsv, html, rss)
      * 
-     * @return  array
+     * @return  mixed
      */
-    public function call($method, array $params = array())
+    public function call($method, array $params = array(), $format = 'php')
     {
-        $params['token_auth'] = $this->token;
+        $params['method']       = $method;
+        $params['token_auth']   = $this->token;
+        $params['format']       = $format;
 
-        return $this->getConnection()->callMethod($method, $params);
+        $data = $this->getConnection()->send($params);
+
+        if ('php' === $format) {
+            return unserialize($data);
+        } else {
+            return $data;
+        }
     }
 
     /**

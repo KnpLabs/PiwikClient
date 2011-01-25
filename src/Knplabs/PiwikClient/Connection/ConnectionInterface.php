@@ -20,10 +20,9 @@ interface ConnectionInterface
     /**
      * Calls specific method on Piwik API.
      *
-     * @param   string  $method     method name (API.getDefaultMetrics, Actions.getPageUrls, etc.)
-     * @param   array   $params     method parameters (associative array)
+     * @param   array   $params     parameters (associative array)
      * 
-     * @return  array               method response
+     * @return  string              response
      */
-    function callMethod($method, array $params = array());
+    function send(array $params = array());
 }

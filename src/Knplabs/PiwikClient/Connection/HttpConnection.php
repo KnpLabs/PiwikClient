@@ -17,7 +17,7 @@ use Buzz\Browser;
  *
  * @author Konstantin Kudryashov <ever.zet@gmail.com>
  */
-class HttpConnection implements ConnectionInterface
+class HttpConnection extends PiwikConnection
 {
     private $browser;
     private $apiUrl;
@@ -42,23 +42,12 @@ class HttpConnection implements ConnectionInterface
     /**
      * {@inheritdoc}
      */
-    public function callMethod($method, array $params = array())
+    public function send(array $params = array())
     {
-        $query = array('module=API', 'method=' . $method);
-        foreach ($params as $key => $val) {
-            if (is_array($val)) {
-                $val = implode(',', $val);
-            } elseif ($val instanceof \DateTime) {
-                $val = $val->format('Y-m-d');
-            } else {
-                $val = urlencode($val);
-            }
-            $query[] = $key . '=' . $val;
-        }
-        $query[] = 'format=json';
+        $params['module'] = 'API';
 
-        $url = $this->apiUrl . '?' . implode('&', $query);
+        $url = $this->apiUrl . '?' . $this->convertParamsToQuery($params);
 
-        return json_decode($this->browser->get($url)->getContent(), true);
+        return $this->browser->get($url)->getContent();
     }
 }

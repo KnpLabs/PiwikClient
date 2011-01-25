@@ -19,15 +19,33 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
         $con
             ->expects($this->once())
-            ->method('callMethod')
-            ->with('API.getReportMetadata', array(
+            ->method('send')
+            ->with(array(
+                'method'    => 'API.getReportMetadata',
                 'token_auth'=> '123',
-                'idSites'   => array(2, 3)
+                'idSites'   => array(2, 3),
+                'format'    => 'json'
             ))
             ->will($this->returnValue($ret = 'some ret text'));
 
-        $this->assertEquals($ret, $client->call('API.getReportMetadata', array('idSites' => array(2, 3))));
+        $this->assertEquals($ret, $client->call('API.getReportMetadata', array('idSites' => array(2, 3)), 'json'));
+    }
 
+    public function testPhpCall()
+    {
+        $client = new Client($con = $this->getConnectionMock(), '123');
+
+        $con
+            ->expects($this->once())
+            ->method('send')
+            ->with(array(
+                'method'    => 'API.getReportMetadata',
+                'token_auth'=> '123',
+                'format'    => 'php'
+            ))
+            ->will($this->returnValue(serialize($ret = array('1st' => 1, '2nd' => 2))));
+
+        $this->assertEquals($ret, $client->call('API.getReportMetadata'));
     }
 
     protected function getConnectionMock()
