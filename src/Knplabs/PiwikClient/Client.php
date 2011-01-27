@@ -10,7 +10,8 @@
 
 namespace Knplabs\PiwikClient;
 
-use Knplabs\PiwikClient\Connection\ConnectionInterface;
+use Knplabs\PiwikClient\Connection\ConnectionInterface,
+    Knplabs\PiwikClient\Exception\Exception;
 
 /**
  * Piwik Client.
@@ -62,6 +63,12 @@ class Client
         $data = $this->getConnection()->send($params);
 
         if ('php' === $format) {
+            $object = unserialize($data);
+
+            if (isset($object['result']) && 'error' === $object['result']) {
+                throw new Exception($object['message']);
+            }
+
             return unserialize($data);
         } else {
             return $data;
