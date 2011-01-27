@@ -28,10 +28,20 @@ class Client
      * @param   ConnectionInterface $connection     Piwik active connection
      * @param   string              $token          auth token
      */
-    public function __construct(ConnectionInterface $connection, $token = '')
+    public function __construct(ConnectionInterface $connection, $token = 'anonymous')
     {
         $this->connection = $connection;
         $this->token      = $token;
+    }
+
+    /**
+     * Set Piwik API token. 
+     * 
+     * @param   string  $token  auth token
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
     }
 
     /**
