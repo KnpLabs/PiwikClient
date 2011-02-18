@@ -2,7 +2,8 @@
 
 namespace Knplabs\PiwikClient\Connection;
 
-use Buzz\Browser;
+use Buzz\Browser,
+    Buzz\Client\Curl;
 
 /*
  * This file is part of the PiwikClient.
@@ -31,7 +32,7 @@ class HttpConnection extends PiwikConnection
     public function __construct($apiUrl, Browser $browser = null)
     {
         if (null === $browser) {
-            $this->browser = new Browser();
+            $this->browser = new Browser(new Curl());
         } else {
             $this->browser = $browser;
         }
