@@ -36,8 +36,8 @@ class Client
     }
 
     /**
-     * Set Piwik API token. 
-     * 
+     * Set Piwik API token.
+     *
      * @param   string  $token  auth token
      */
     public function setToken($token)
@@ -51,7 +51,7 @@ class Client
      * @param   string  $method     method name
      * @param   array   $params     method parameters
      * @param   string  $format     return format (php, json, xml, csv, tsv, html, rss)
-     * 
+     *
      * @return  mixed
      */
     public function call($method, array $params = array(), $format = 'php')
@@ -69,7 +69,7 @@ class Client
                 throw new Exception($object['message']);
             }
 
-            return unserialize($data);
+            return $object;
         } else {
             return $data;
         }
