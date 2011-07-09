@@ -1,9 +1,9 @@
 <?php
 
-namespace Test\Knplabs\PiwikClient\Connection;
+namespace Test\Knp\PiwikClient\Connection;
 
 use Buzz;
-use Knplabs\PiwikClient\Connection\HttpConnection;
+use Knp\PiwikClient\Connection\HttpConnection;
 
 class HttpConnectionTest extends \PHPUnit_Framework_TestCase
 {

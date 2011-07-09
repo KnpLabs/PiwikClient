@@ -1,8 +1,8 @@
 <?php
 
-namespace Test\Knplabs\PiwikClient\Connection;
+namespace Test\Knp\PiwikClient\Connection;
 
-use Knplabs\PiwikClient\Connection\StubConnection;
+use Knp\PiwikClient\Connection\StubConnection;
 
 class StubConnectionTest extends \PHPUnit_Framework_TestCase
 {

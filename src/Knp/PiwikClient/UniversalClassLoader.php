@@ -1,6 +1,6 @@
 <?php
 
-namespace Knplabs\PiwikClient;
+namespace Knp\PiwikClient;
 
 /*
  * This file is part of the Symfony package.

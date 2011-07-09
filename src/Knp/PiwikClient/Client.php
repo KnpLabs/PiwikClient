@@ -2,16 +2,16 @@
 
 /*
  * This file is part of the PiwikClient.
- * (c) 2011 knpLabs <http://www.knplabs.com>
+ * (c) 2011 Knp Labs <http://www.knplabs.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Knplabs\PiwikClient;
+namespace Knp\PiwikClient;
 
-use Knplabs\PiwikClient\Connection\ConnectionInterface,
-    Knplabs\PiwikClient\Exception\Exception;
+use Knp\PiwikClient\Connection\ConnectionInterface,
+    Knp\PiwikClient\Exception\Exception;
 
 /**
  * Piwik Client.
