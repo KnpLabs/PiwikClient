@@ -2,6 +2,7 @@
 
 namespace Knp\PiwikClient\Connection;
 
+use Knplabs\PiwikClient\Exception\Exception as PiwikException;
 use Buzz\Browser,
     Buzz\Client\Curl;
 
@@ -49,6 +50,12 @@ class HttpConnection extends PiwikConnection
 
         $url = $this->apiUrl . '?' . $this->convertParamsToQuery($params);
 
-        return $this->browser->get($url)->getContent();
+        $response =  $this->browser->get($url);
+
+        if($response->getStatusCode() !== 200) {
+            throw new PiwikException(sprintf('"%s" returned an invalid status code: "%s"', $url, $response->getStatusCode()));
+        }
+
+        return $response->getContent();
     }
 }
