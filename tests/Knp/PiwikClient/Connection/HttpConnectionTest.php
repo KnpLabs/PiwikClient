@@ -49,7 +49,7 @@ class HttpConnectionTest extends \PHPUnit_Framework_TestCase
     protected function createResponse($content)
     {
         $resp = new Buzz\Message\Response();
-        $resp->fromString("200 OK\n\n" . $content);
+        $resp->fromString("HTTP/1.1 200 OK\n\n" . $content);
 
         return $resp;
     }
