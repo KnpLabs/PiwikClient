@@ -2,7 +2,7 @@
 
 namespace Knp\PiwikClient\Connection;
 
-use Knplabs\PiwikClient\Exception\Exception as PiwikException;
+use Knp\PiwikClient\Exception\Exception as PiwikException;
 use Buzz\Browser,
     Buzz\Client\Curl;
 
