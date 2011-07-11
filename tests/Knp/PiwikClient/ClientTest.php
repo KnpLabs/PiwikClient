@@ -1,8 +1,8 @@
 <?php
 
-namespace Test\Knplabs\PiwikClient;
+namespace Test\Knp\PiwikClient;
 
-use Knplabs\PiwikClient\Client;
+use Knp\PiwikClient\Client;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
@@ -50,7 +50,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     protected function getConnectionMock()
     {
-        return $this->getMockBuilder('Knplabs\PiwikClient\Connection\HttpConnection')
+        return $this->getMockBuilder('Knp\PiwikClient\Connection\HttpConnection')
             ->disableOriginalConstructor()
             ->getMock();
     }

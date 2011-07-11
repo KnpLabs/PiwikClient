@@ -10,8 +10,8 @@ Usage
 
         <?php
         
-        $connection = new Knplabs\PiwikClient\Connection\HttpConnection('http://demo.piwik.org');
-        $client     = new Knplabs\PiwikClient\Client($connection, 'YOUR_API_TOKEN');
+        $connection = new Knp\PiwikClient\Connection\HttpConnection('http://demo.piwik.org');
+        $client     = new Knp\PiwikClient\Client($connection, 'YOUR_API_TOKEN');
         
         $array = $client->call('API.getReportMetadata', array('idSites' => array(23, 55)));
 2. Through local (PHP) connection:
@@ -22,8 +22,8 @@ Usage
         require_once PIWIK_INCLUDE_PATH . "/core/API/Request.php";
         Piwik_FrontController::getInstance()->init();
 
-        $connection = new Knplabs\PiwikClient\Connection\PiwikConnection();
-        $client     = new Knplabs\PiwikClient\Client($connection, 'YOUR_API_TOKEN');
+        $connection = new Knp\PiwikClient\Connection\PiwikConnection();
+        $client     = new Knp\PiwikClient\Client($connection, 'YOUR_API_TOKEN');
 
         $array = $client->call('API.getReportMetadata', array('idSites' => array(23, 55)));
 
@@ -35,4 +35,4 @@ To see all available methods & their parameters, visit [Piwik API Reference](htt
 Copyright
 ---------
 
-PiwikClient Copyright (c) 2011 knpLabs <http://www.knplabs.com>. See LICENSE for details.
+PiwikClient Copyright (c) 2011 KnpLabs <http://www.knplabs.com>. See LICENSE for details.

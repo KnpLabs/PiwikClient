@@ -13,7 +13,7 @@
 >
     <testsuites>
         <testsuite name="PiwikClient Test Suite">
-            <directory>./tests/Knplabs/PiwikClient/</directory>
+            <directory>./tests/Knp/PiwikClient/</directory>
         </testsuite>
     </testsuites>
 </phpunit>
