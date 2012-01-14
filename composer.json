@@ -1,0 +1,30 @@
+{
+    "name":        "knplabs/knp-piwik-client",
+    "type":        "library",
+    "description": "Simple client for Piwik (web analytics) API.",
+    "keywords":    ["piwik", "analytics", "knplabs", "knp"],
+    "homepage":    "http://github.com/KnpLabs/PiwikClient",
+    "license":     "MIT",
+
+    "authors": [
+        {
+            "name": "KnpLabs Team",
+            "homepage": "http://knplabs.com"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "http://github.com/KnpLabs/PiwikClient/contributors"
+        }
+    ],
+
+    "require": {
+        "php":                ">=5.3.0",
+        "kriswallsmith/buzz": "*"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Knp\\PiwikClient": "src/"
+        }
+    }
+}
