@@ -20,9 +20,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      *************************************************************************/
     public function testConnection()
     {
-        $client = new Client($con = $this->getConnectionMock());
-
-        $this->assertSame($con, $client->getConnection());
+        $connection = $this->getConnectionMock();
+        $client = new Client($connection);
+        $this->assertSame($connection, $client->getConnection());
     }
 
 
@@ -33,9 +33,10 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     public function testCall($assertResponse, $responseText, $format)
     {
-        $client = new Client($con = $this->getConnectionMock(), '123');
+        $connection = $this->getConnectionMock();
+        $client = new Client($connection, '123');
 
-        $con
+        $connection
             ->expects($this->once())
             ->method('send')
             ->with(array(
@@ -54,7 +55,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $assertResponse = array('1st' => 1, '2nd' => 'string');
         return array(
-            // Unserializing expected with php format
+            // Deserialization expected with php format
             array($assertResponse, serialize($assertResponse), 'php'),
             // No treatment expected with other format
             array($assertResponse, $assertResponse, 'json')
