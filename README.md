@@ -35,4 +35,4 @@ To see all available methods & their parameters, visit [Piwik API Reference](htt
 Copyright
 ---------
 
-PiwikClient Copyright (c) 2011 KnpLabs <http://www.knplabs.com>. See LICENSE for details.
+PiwikClient Copyright (c) 2013 KnpLabs <http://www.knplabs.com>. See LICENSE for details.
