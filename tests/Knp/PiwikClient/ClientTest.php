@@ -42,12 +42,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ->with(array(
                 'method'    => 'API.getReportMetadata',
                 'token_auth'=> '123',
-                'idSites'   => array(2, 3),
+                'idSite'   => array(2, 3),
                 'format'    => $format
             ))
             ->will($this->returnValue($responseText));
 
-        $actualResponse = $client->call('API.getReportMetadata', array('idSites' => array(2, 3)), $format);
+        $actualResponse = $client->call('API.getReportMetadata', array('idSite' => array(2, 3)), $format);
         $this->assertEquals($assertResponse, $actualResponse);
     }
 

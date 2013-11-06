@@ -13,7 +13,7 @@ Usage
         $connection = new Knp\PiwikClient\Connection\HttpConnection('http://demo.piwik.org');
         $client     = new Knp\PiwikClient\Client($connection, 'YOUR_API_TOKEN');
         
-        $array = $client->call('API.getReportMetadata', array('idSites' => array(23, 55)));
+        $array = $client->call('API.getReportMetadata', array('idSite' => array(23, 55)));
 2. Through local (PHP) connection:
 
         <?php
@@ -25,7 +25,7 @@ Usage
         $connection = new Knp\PiwikClient\Connection\PiwikConnection();
         $client     = new Knp\PiwikClient\Client($connection, 'YOUR_API_TOKEN');
 
-        $array = $client->call('API.getReportMetadata', array('idSites' => array(23, 55)));
+        $array = $client->call('API.getReportMetadata', array('idSite' => array(23, 55)));
 
 Methods
 -------
