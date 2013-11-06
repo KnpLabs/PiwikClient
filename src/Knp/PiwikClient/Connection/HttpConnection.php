@@ -51,8 +51,7 @@ class HttpConnection extends PiwikConnection
         $url = $this->apiUrl . '?' . $this->convertParamsToQuery($params);
 
         $response =  $this->browser->get($url);
-
-        if($response->getStatusCode() !== 200) {
+        if(!$response->isSuccessful()) {
             throw new PiwikException(sprintf('"%s" returned an invalid status code: "%s"', $url, $response->getStatusCode()));
         }
 
