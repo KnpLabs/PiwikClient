@@ -6,7 +6,11 @@ use Knp\PiwikClient\Connection\StubConnection;
 
 class StubConnectionTest extends \PHPUnit_Framework_TestCase
 {
-    public function testMethodCalls()
+
+
+    /* TEST SEND
+     *************************************************************************/
+    public function testSend()
     {
         $con = new StubConnection();
         $con->addResponse($resp = 'some resp');
