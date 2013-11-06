@@ -26,7 +26,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
 
 
-    /* TEST CALL FORMAT JSON
+    /* TEST CALL
      *************************************************************************/
     /**
      * @dataProvider providerCall
@@ -60,6 +60,23 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             // No treatment expected with other format
             array($assertResponse, $assertResponse, 'json')
         );
+    }
+
+
+    /* TEST CALL EXCEPTION
+     *************************************************************************/
+    public function testCallException()
+    {
+        $connection = $this->getConnectionMock();
+        $client = new Client($connection, '123');
+
+        $connection
+            ->expects($this->once())
+            ->method('send')
+            ->will($this->returnValue(serialize(array('result'=>'error', 'message'=>'test'))));
+
+        $this->setExpectedException('Knp\PiwikClient\Exception\Exception');
+        $client->call('API.getReportMetadata');
     }
 
 

@@ -32,7 +32,7 @@ class Client
     public function __construct(ConnectionInterface $connection, $token = 'anonymous')
     {
         $this->connection = $connection;
-        $this->token      = $token;
+        $this->setToken($token);
     }
 
     /**
