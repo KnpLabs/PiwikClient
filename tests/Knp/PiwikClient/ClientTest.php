@@ -1,21 +1,11 @@
 <?php
 
-/*
- * This file is part of the PiwikClient.
- * (c) 2013 Knp Labs <http://www.knplabs.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace Test\Knp\PiwikClient;
 
 use Knp\PiwikClient\Client;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
-
-
     /* TEST GET CONNECTION
      *************************************************************************/
     public function testConnection()
