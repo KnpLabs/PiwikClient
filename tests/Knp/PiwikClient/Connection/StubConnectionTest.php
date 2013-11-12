@@ -7,7 +7,6 @@ use Knp\PiwikClient\Connection\StubConnection;
 class StubConnectionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /* TEST SEND
      *************************************************************************/
     public function testSend()

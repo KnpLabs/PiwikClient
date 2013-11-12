@@ -8,13 +8,11 @@ use Knp\PiwikClient\Connection\HttpConnection;
 class HttpConnectionTest extends \PHPUnit_Framework_TestCase
 {
 
-
     /* ATTRIBUTES
      *************************************************************************/
     private $browser;
     private $httpConnection;
     private $domain = 'http://example.com';
-
 
     /* UTILS
      *************************************************************************/
@@ -31,9 +29,9 @@ class HttpConnectionTest extends \PHPUnit_Framework_TestCase
         $response = new Buzz\Message\Response();
         $response->addHeader('1.0 200 OK');
         $response->setContent($content);
+
         return $response;
     }
-
 
     /* TEST SEND URL
      *************************************************************************/
@@ -75,7 +73,6 @@ class HttpConnectionTest extends \PHPUnit_Framework_TestCase
             )
         );
     }
-
 
     /* TEST SEND RESPONSE
      *************************************************************************/

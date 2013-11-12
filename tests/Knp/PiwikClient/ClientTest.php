@@ -15,7 +15,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($connection, $client->getConnection());
     }
 
-
     /* TEST CALL
      *************************************************************************/
     /**
@@ -44,6 +43,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function providerCall()
     {
         $assertResponse = array('1st' => 1, '2nd' => 'string');
+
         return array(
             // Deserialization expected with php format
             array($assertResponse, serialize($assertResponse), 'php'),
@@ -51,7 +51,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             array($assertResponse, $assertResponse, 'json')
         );
     }
-
 
     /* TEST CALL EXCEPTION
      *************************************************************************/
@@ -68,7 +67,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('Knp\PiwikClient\Exception\Exception');
         $client->call('API.getReportMetadata');
     }
-
 
     /* UTILS
      *************************************************************************/

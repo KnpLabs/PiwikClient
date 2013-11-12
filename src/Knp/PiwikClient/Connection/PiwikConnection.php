@@ -11,14 +11,14 @@ class PiwikConnection implements ConnectionInterface
 {
     /**
      * Initialize Piwik Connector.
-     * 
+     *
      * require_once PIWIK_INCLUDE_PATH . "/index.php";
      * require_once PIWIK_INCLUDE_PATH . "/core/API/Request.php";
      * Piwik_FrontController::getInstance()->init();
-     * 
+     *
      * $con = new Knp\PiwikClient\Connection\PiwikConnection();
-     * 
-     * @param   boolean $initFrontController    will init Piwik instance if true
+     *
+     * @param boolean $initFrontController will init Piwik instance if true
      */
     public function __construct($initFrontController = false)
     {
@@ -38,11 +38,11 @@ class PiwikConnection implements ConnectionInterface
     }
 
     /**
-     * Convert hash of parameters to query string. 
-     * 
-     * @param   array   $params hash
+     * Convert hash of parameters to query string.
      *
-     * @return  string          query string
+     * @param array $params hash
+     *
+     * @return string query string
      */
     protected function convertParamsToQuery(array $params)
     {

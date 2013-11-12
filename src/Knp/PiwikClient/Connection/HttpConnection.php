@@ -19,8 +19,8 @@ class HttpConnection extends PiwikConnection
     /**
      * Initialize client.
      *
-     * @param   string  $apiUrl     base API URL
-     * @param   Browser $browser    Buzz Browser instance (optional)
+     * @param string  $apiUrl  base API URL
+     * @param Browser $browser Buzz Browser instance (optional)
      */
     public function __construct($apiUrl, Browser $browser = null)
     {
@@ -43,7 +43,7 @@ class HttpConnection extends PiwikConnection
         $url = $this->apiUrl . '?' . $this->convertParamsToQuery($params);
 
         $response =  $this->browser->get($url);
-        if(!$response->isSuccessful()) {
+        if (!$response->isSuccessful()) {
             throw new PiwikException(sprintf('"%s" returned an invalid status code: "%s"', $url, $response->getStatusCode()));
         }
 

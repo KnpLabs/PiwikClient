@@ -18,8 +18,8 @@ class Client
     /**
      * Initialize Piwik client.
      *
-     * @param   ConnectionInterface $connection     Piwik active connection
-     * @param   string              $token          auth token
+     * @param ConnectionInterface $connection Piwik active connection
+     * @param string              $token      auth token
      */
     public function __construct(ConnectionInterface $connection, $token = 'anonymous')
     {
@@ -30,7 +30,7 @@ class Client
     /**
      * Set Piwik API token.
      *
-     * @param   string  $token  auth token
+     * @param string $token auth token
      */
     public function setToken($token)
     {
@@ -40,11 +40,11 @@ class Client
     /**
      * Call specific method & return it's response.
      *
-     * @param   string  $method     method name
-     * @param   array   $params     method parameters
-     * @param   string  $format     return format (php, json, xml, csv, tsv, html, rss)
+     * @param string $method method name
+     * @param array  $params method parameters
+     * @param string $format return format (php, json, xml, csv, tsv, html, rss)
      *
-     * @return  mixed
+     * @return mixed
      */
     public function call($method, array $params = array(), $format = 'php')
     {
@@ -70,7 +70,7 @@ class Client
     /**
      * Return active connection.
      *
-     * @return  ConnectionInterface
+     * @return ConnectionInterface
      */
     public function getConnection()
     {

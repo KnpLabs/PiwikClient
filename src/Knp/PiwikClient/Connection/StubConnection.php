@@ -13,9 +13,9 @@ class StubConnection implements ConnectionInterface
     protected $responses    = array();
 
     /**
-     * Return all maded requests. 
-     * 
-     * @return  array
+     * Return all maded requests.
+     *
+     * @return array
      */
     public function getRequests()
     {
@@ -23,9 +23,9 @@ class StubConnection implements ConnectionInterface
     }
 
     /**
-     * Add response to queue. 
-     * 
-     * @param   string  $response   stub response
+     * Add response to queue.
+     *
+     * @param string $response stub response
      */
     public function addResponse($response)
     {

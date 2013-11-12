@@ -12,9 +12,9 @@ interface ConnectionInterface
     /**
      * Calls specific method on Piwik API.
      *
-     * @param   array   $params     parameters (associative array)
-     * 
-     * @return  string              response
+     * @param array $params parameters (associative array)
+     *
+     * @return string response
      */
-    function send(array $params = array());
+    public function send(array $params = array());
 }
