@@ -50,8 +50,8 @@ This library can be installed using composer by adding the following in the requ
 
 ```json
 "require": {
-        ...
-        "knplabs/knp-piwik-client": "dev-master"
+    ...
+    "knplabs/knp-piwik-client": "1.*"
 },
 ```
 
