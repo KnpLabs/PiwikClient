@@ -19,7 +19,7 @@
 
     "require": {
         "php":                ">=5.3.0",
-        "kriswallsmith/buzz": "*"
+        "kriswallsmith/buzz": "0.10.*"
     },
 
     "autoload": {

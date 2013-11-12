@@ -1,18 +1,18 @@
 <?php
 
+/*
+ * This file is part of the PiwikClient.
+ * (c) 2013 Knp Labs <http://www.knplabs.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Knp\PiwikClient\Connection;
 
 use Knp\PiwikClient\Exception\Exception as PiwikException;
 use Buzz\Browser,
     Buzz\Client\Curl;
-
-/*
- * This file is part of the PiwikClient.
- * (c) 2011 Knp Labs <http://www.knplabs.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 
 /**
  * Piwik HTTP Connector.
@@ -51,8 +51,7 @@ class HttpConnection extends PiwikConnection
         $url = $this->apiUrl . '?' . $this->convertParamsToQuery($params);
 
         $response =  $this->browser->get($url);
-
-        if($response->getStatusCode() !== 200) {
+        if(!$response->isSuccessful()) {
             throw new PiwikException(sprintf('"%s" returned an invalid status code: "%s"', $url, $response->getStatusCode()));
         }
 

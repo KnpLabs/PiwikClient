@@ -3,36 +3,59 @@ PiwikClient
 
 PHP 5.3 client for [Piwik](http://piwik.org/) web analytics.
 
+To see all available methods & their parameters, visit [Piwik API Reference](http://piwik.org/docs/analytics-api/reference/).
+
+
 Usage
 -----
 
-1. Through HTTP connection:
+### Through HTTP connection
 
-        <?php
-        
-        $connection = new Knp\PiwikClient\Connection\HttpConnection('http://demo.piwik.org');
-        $client     = new Knp\PiwikClient\Client($connection, 'YOUR_API_TOKEN');
-        
-        $array = $client->call('API.getReportMetadata', array('idSites' => array(23, 55)));
-2. Through local (PHP) connection:
+```php
+use Knp\PiwikClient\Connection\HttpConnection;
+use Knp\PiwikClient\Client;
 
-        <?php
+// Instantiate piwik client
+$connection = new HttpConnection('http://demo.piwik.org');
+$client = new Client($connection, 'YOUR_API_TOKEN');
 
-        require_once PIWIK_INCLUDE_PATH . "/index.php";
-        require_once PIWIK_INCLUDE_PATH . "/core/API/Request.php";
-        Piwik_FrontController::getInstance()->init();
+// Call piwik API
+$array = $client->call('PLUGIN.METHOD', $parameters);
+```
 
-        $connection = new Knp\PiwikClient\Connection\PiwikConnection();
-        $client     = new Knp\PiwikClient\Client($connection, 'YOUR_API_TOKEN');
+### Through local (PHP) connection
 
-        $array = $client->call('API.getReportMetadata', array('idSites' => array(23, 55)));
+```php
+use Knp\PiwikClient\Connection\PiwikConnection;
+use Knp\PiwikClient\Client;
 
-Methods
--------
+// Instantiate piwik
+require_once PIWIK_INCLUDE_PATH . "/index.php";
+require_once PIWIK_INCLUDE_PATH . "/core/API/Request.php";
+Piwik_FrontController::getInstance()->init();
 
-To see all available methods & their parameters, visit [Piwik API Reference](http://dev.piwik.org/trac/wiki/API/Reference).
+// Instantiate piwik client
+$connection = new PiwikConnection();
+$client = new Client($connection, 'YOUR_API_TOKEN');
+
+// Call piwik API
+$array = $client->call('PLUGIN.METHOD', $parameters);
+```
+
+
+Installation
+---------
+
+This library can be installed using composer by adding the following in the require section of your composer.json file:
+
+```json
+"require": {
+        ...
+        "knplabs/knp-piwik-client": "dev-master"
+},
+```
+
 
 Copyright
 ---------
-
-PiwikClient Copyright (c) 2011 KnpLabs <http://www.knplabs.com>. See LICENSE for details.
+PiwikClient is released under the MIT License. See the bundled LICENSE file for details.
