@@ -66,10 +66,10 @@ class HttpConnectionTest extends \PHPUnit_Framework_TestCase
                     'bool1'  => true,
                     'bool2'  => false,
                     'date'   => new \DateTime('2009/03/12', new \DateTimeZone('Europe/Paris')),
-                    'arr'    => array(2, 3, 4),
+                    'arr'    => array(2, 3, 4, 'mam,bo'),
                     'format' => 'php'
                 ),
-                $this->domain.'?method=Actions.getOutlinks&idSite=2&period=week&bool1=1&date=2009-03-12&arr=2,3,4&format=php&module=API'
+                $this->domain.'?method=Actions.getOutlinks&idSite=2&period=week&bool1=1&date=2009-03-12&arr=2,3,4,mam%2Cbo&format=php&module=API'
             )
         );
     }

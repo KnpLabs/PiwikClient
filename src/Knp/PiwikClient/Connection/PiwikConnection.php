@@ -50,6 +50,11 @@ class PiwikConnection implements ConnectionInterface
 
         foreach ($params as $key => $val) {
             if (is_array($val)) {
+                array_walk($val, function ($value, $key) use (&$val) {
+                    if (!is_array($value)) {
+                        $val[$key] = urlencode($value);
+                    }
+                });
                 $val = implode(',', $val);
             } elseif ($val instanceof \DateTime) {
                 $val = $val->format('Y-m-d');
